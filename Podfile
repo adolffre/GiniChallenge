@@ -1,11 +1,11 @@
-# platform :ios, '9.0'
+# platform :ios, '11.3'
 
 target 'GiniChallenge' do
   use_frameworks!
 
   pod 'Alamofire'
   pod 'SDWebImage/WebP'
-  pod 'XMLMapper'
+  pod 'XMLMapper/Requests'
 
   target 'GiniChallengeTests' do
     inherit! :search_paths

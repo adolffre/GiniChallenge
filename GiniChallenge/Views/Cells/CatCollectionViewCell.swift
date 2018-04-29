@@ -9,12 +9,14 @@
 import SDWebImage
 
 class CatCollectionViewCell: UICollectionViewCell {
+  @IBOutlet weak var urlView: UITextView!
   @IBOutlet weak var imageView: UIImageView!
   @IBOutlet weak var favoriteImage: UIImageView!
   
   static let reuseIdentifier = "CatCollectionViewCell"
   
   func render(cat: Cat)  {
+    urlView.text = cat.imgUrl
     favoriteImage.image = cat.isFavorite ? #imageLiteral(resourceName: "heart_on") : #imageLiteral(resourceName: "heart_fade")
     imageView.sd_setImage(with: URL(string: cat.imgUrl!), placeholderImage: UIImage(named: "no_image"))
   }

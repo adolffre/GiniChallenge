@@ -10,7 +10,6 @@
 		C41D79D8FF94927768F01E0F /* Pods_GiniChallengeTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 27EE4F1AF6846AD51ED24AB0 /* Pods_GiniChallengeTests.framework */; };
 		D7A6A15D0FA945C0D0B18D28 /* Pods_GiniChallenge.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 862BD2BEEE5154FD632038D6 /* Pods_GiniChallenge.framework */; };
 		E319348020949B0F0047956F /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = E319347F20949B0F0047956F /* AppDelegate.swift */; };
-		E319348220949B0F0047956F /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E319348120949B0F0047956F /* ViewController.swift */; };
 		E319348520949B0F0047956F /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = E319348320949B0F0047956F /* Main.storyboard */; };
 		E319348820949B0F0047956F /* GiniChallenge.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = E319348620949B0F0047956F /* GiniChallenge.xcdatamodeld */; };
 		E319348A20949B100047956F /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = E319348920949B100047956F /* Assets.xcassets */; };
@@ -43,7 +42,6 @@
 		BF5DEE6F5EA3631AC7F302C7 /* Pods-GiniChallengeTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-GiniChallengeTests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-GiniChallengeTests/Pods-GiniChallengeTests.debug.xcconfig"; sourceTree = "<group>"; };
 		E319347C20949B0F0047956F /* GiniChallenge.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = GiniChallenge.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		E319347F20949B0F0047956F /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
-		E319348120949B0F0047956F /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
 		E319348420949B0F0047956F /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		E319348720949B0F0047956F /* GiniChallenge.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = GiniChallenge.xcdatamodel; sourceTree = "<group>"; };
 		E319348920949B100047956F /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
@@ -128,7 +126,6 @@
 				E31934A72094A9A40047956F /* Models */,
 				E31934A22094A09F0047956F /* Services */,
 				E319347F20949B0F0047956F /* AppDelegate.swift */,
-				E319348120949B0F0047956F /* ViewController.swift */,
 				E319348320949B0F0047956F /* Main.storyboard */,
 				E319348920949B100047956F /* Assets.xcassets */,
 				E319348B20949B100047956F /* LaunchScreen.storyboard */,
@@ -297,6 +294,7 @@
 			inputPaths = (
 				"${SRCROOT}/Pods/Target Support Files/Pods-GiniChallenge/Pods-GiniChallenge-frameworks.sh",
 				"${BUILT_PRODUCTS_DIR}/Alamofire/Alamofire.framework",
+				"${BUILT_PRODUCTS_DIR}/HandySwift/HandySwift.framework",
 				"${BUILT_PRODUCTS_DIR}/SDWebImage/SDWebImage.framework",
 				"${BUILT_PRODUCTS_DIR}/XMLMapper/XMLMapper.framework",
 				"${BUILT_PRODUCTS_DIR}/libwebp/libwebp.framework",
@@ -304,6 +302,7 @@
 			name = "[CP] Embed Pods Frameworks";
 			outputPaths = (
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Alamofire.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/HandySwift.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/SDWebImage.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/XMLMapper.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/libwebp.framework",
@@ -358,7 +357,6 @@
 			files = (
 				E31934AC2094BA3A0047956F /* CatPicturesPresenter.swift in Sources */,
 				E31934AF2094D0A50047956F /* CatPicturesViewController.swift in Sources */,
-				E319348220949B0F0047956F /* ViewController.swift in Sources */,
 				E31934A42094A21D0047956F /* ImagesService.swift in Sources */,
 				E31934A92094A9AD0047956F /* Cat.swift in Sources */,
 				E3D0C7DD2094D9EF0032DB68 /* CatCollectionViewCell.swift in Sources */,

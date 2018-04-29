@@ -32,7 +32,11 @@ class Cat: XMLMappable {
   required init(map: XMLMap) {
     
   }
-  
+  init () {
+    imgUrl = ""
+    id = ""
+    isFavorite = false
+  }
   func mapping(map: XMLMap) {
     imgUrl <- map["url"]
     id <- map["id"]

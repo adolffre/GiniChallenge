@@ -6,6 +6,7 @@ target 'GiniChallenge' do
   pod 'Alamofire'
   pod 'SDWebImage/WebP'
   pod 'XMLMapper/Requests'
+  pod 'HandySwift', '~> 2.4'
 
   target 'GiniChallengeTests' do
     inherit! :search_paths

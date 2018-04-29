@@ -8,6 +8,7 @@
 
 import UIKit
 import CoreData
+import HandySwift
 
 @UIApplicationMain
 class AppDelegate: UIResponder, UIApplicationDelegate {
@@ -16,6 +17,17 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
 
   func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplicationLaunchOptionsKey: Any]?) -> Bool {
+    let defaults = UserDefaults.standard
+    
+    if defaults.object(forKey: "userId") == nil {
+      let userId = String(randomWithLength: 8, allowedCharactersType: .alphaNumeric)
+      defaults.set(userId, forKey: "userId")
+      defaults.synchronize()
+      
+    }
+    
+    
+    
     // Override point for customization after application launch.
     return true
   }

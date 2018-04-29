@@ -21,6 +21,8 @@
 		E31934AF2094D0A50047956F /* CatPicturesViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E31934AE2094D0A50047956F /* CatPicturesViewController.swift */; };
 		E3D0C7DD2094D9EF0032DB68 /* CatCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = E3D0C7DC2094D9EF0032DB68 /* CatCollectionViewCell.swift */; };
 		E3D0C7DF2095E2F60032DB68 /* PersistantService.swift in Sources */ = {isa = PBXBuildFile; fileRef = E3D0C7DE2095E2F60032DB68 /* PersistantService.swift */; };
+		E3D0C7E920967AB60032DB68 /* FavoriteCatsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E3D0C7E820967AB60032DB68 /* FavoriteCatsViewController.swift */; };
+		E3D0C7EB20967B670032DB68 /* FavoriteCatsPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = E3D0C7EA20967B670032DB68 /* FavoriteCatsPresenter.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -56,6 +58,8 @@
 		E31934AE2094D0A50047956F /* CatPicturesViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CatPicturesViewController.swift; sourceTree = "<group>"; };
 		E3D0C7DC2094D9EF0032DB68 /* CatCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CatCollectionViewCell.swift; sourceTree = "<group>"; };
 		E3D0C7DE2095E2F60032DB68 /* PersistantService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PersistantService.swift; sourceTree = "<group>"; };
+		E3D0C7E820967AB60032DB68 /* FavoriteCatsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FavoriteCatsViewController.swift; sourceTree = "<group>"; };
+		E3D0C7EA20967B670032DB68 /* FavoriteCatsPresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FavoriteCatsPresenter.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -165,6 +169,7 @@
 			isa = PBXGroup;
 			children = (
 				E31934AB2094BA390047956F /* CatPicturesPresenter.swift */,
+				E3D0C7EA20967B670032DB68 /* FavoriteCatsPresenter.swift */,
 			);
 			path = Presenters;
 			sourceTree = "<group>";
@@ -174,6 +179,7 @@
 			children = (
 				E3D0C7DB2094D9DB0032DB68 /* Cells */,
 				E31934AE2094D0A50047956F /* CatPicturesViewController.swift */,
+				E3D0C7E820967AB60032DB68 /* FavoriteCatsViewController.swift */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -356,8 +362,10 @@
 			buildActionMask = 2147483647;
 			files = (
 				E31934AC2094BA3A0047956F /* CatPicturesPresenter.swift in Sources */,
+				E3D0C7EB20967B670032DB68 /* FavoriteCatsPresenter.swift in Sources */,
 				E31934AF2094D0A50047956F /* CatPicturesViewController.swift in Sources */,
 				E31934A42094A21D0047956F /* ImagesService.swift in Sources */,
+				E3D0C7E920967AB60032DB68 /* FavoriteCatsViewController.swift in Sources */,
 				E31934A92094A9AD0047956F /* Cat.swift in Sources */,
 				E3D0C7DD2094D9EF0032DB68 /* CatCollectionViewCell.swift in Sources */,
 				E319348820949B0F0047956F /* GiniChallenge.xcdatamodeld in Sources */,

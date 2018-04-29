@@ -40,6 +40,16 @@
                                                     <rect key="frame" x="0.0" y="0.0" width="374" height="346"/>
                                                     <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                                                 </imageView>
+                                                <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" scrollEnabled="NO" showsHorizontalScrollIndicator="NO" showsVerticalScrollIndicator="NO" editable="NO" text="http://www.google.com.br" textAlignment="center" translatesAutoresizingMaskIntoConstraints="NO" id="rf5-cH-K5d">
+                                                    <rect key="frame" x="20" y="310.5" width="334" height="29"/>
+                                                    <constraints>
+                                                        <constraint firstAttribute="height" constant="29" id="KHw-55-PAd"/>
+                                                        <constraint firstAttribute="height" relation="greaterThanOrEqual" constant="29" id="gYk-jI-buD"/>
+                                                    </constraints>
+                                                    <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                                    <textInputTraits key="textInputTraits" autocapitalizationType="sentences" textContentType="url"/>
+                                                    <dataDetectorType key="dataDetectorTypes" link="YES"/>
+                                                </textView>
                                                 <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="heart_on" translatesAutoresizingMaskIntoConstraints="NO" id="Sdt-uJ-cMD">
                                                     <rect key="frame" x="314" y="8" width="52" height="60"/>
                                                     <constraints>
@@ -53,10 +63,14 @@
                                         <constraints>
                                             <constraint firstItem="Sdt-uJ-cMD" firstAttribute="trailing" secondItem="Qxc-gK-zPC" secondAttribute="trailingMargin" id="Ehh-9p-Kmr"/>
                                             <constraint firstItem="Sdt-uJ-cMD" firstAttribute="top" secondItem="Qxc-gK-zPC" secondAttribute="topMargin" id="Gze-RU-9Wa"/>
+                                            <constraint firstItem="rf5-cH-K5d" firstAttribute="leading" secondItem="Qxc-gK-zPC" secondAttribute="leading" constant="20" id="OPM-hT-BYg"/>
+                                            <constraint firstAttribute="trailing" secondItem="rf5-cH-K5d" secondAttribute="trailing" constant="20" id="aML-9D-ysI"/>
+                                            <constraint firstAttribute="bottom" secondItem="rf5-cH-K5d" secondAttribute="bottom" constant="6" id="xS8-jG-lXl"/>
                                         </constraints>
                                         <connections>
                                             <outlet property="favoriteImage" destination="Sdt-uJ-cMD" id="1bc-4d-9h4"/>
                                             <outlet property="imageView" destination="Ub5-OD-2h7" id="aeo-OD-Osr"/>
+                                            <outlet property="urlView" destination="rf5-cH-K5d" id="a05-e0-MRl"/>
                                         </connections>
                                     </collectionViewCell>
                                 </cells>
@@ -75,7 +89,13 @@
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
                     </view>
-                    <navigationItem key="navigationItem" title="Cat Lovers" id="TPC-Kf-s4x"/>
+                    <navigationItem key="navigationItem" title="Cat Lovers" id="TPC-Kf-s4x">
+                        <barButtonItem key="rightBarButtonItem" title="Favorites" id="xmd-yn-VM0">
+                            <connections>
+                                <segue destination="MOa-rc-OZp" kind="show" id="Qew-xL-VyU"/>
+                            </connections>
+                        </barButtonItem>
+                    </navigationItem>
                     <connections>
                         <outlet property="collectionView" destination="ISe-cp-yqP" id="m3t-7a-rTZ"/>
                     </connections>
@@ -99,6 +119,92 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="wvZ-kd-oCh" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="-401" y="180"/>
+        </scene>
+        <!--Favorites-->
+        <scene sceneID="4CH-Y5-cBT">
+            <objects>
+                <viewController id="MOa-rc-OZp" customClass="FavoriteCatsViewController" customModule="GiniChallenge" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="SVt-V2-ZQV">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" directionalLockEnabled="YES" pagingEnabled="YES" showsHorizontalScrollIndicator="NO" showsVerticalScrollIndicator="NO" indicatorStyle="white" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="HLh-ln-meR">
+                                <rect key="frame" x="0.0" y="64" width="375" height="603"/>
+                                <color key="backgroundColor" white="0.33333333329999998" alpha="1" colorSpace="calibratedWhite"/>
+                                <collectionViewFlowLayout key="collectionViewLayout" scrollDirection="horizontal" minimumLineSpacing="0.0" minimumInteritemSpacing="0.0" id="4Af-Pv-Huc">
+                                    <size key="itemSize" width="374" height="346"/>
+                                    <size key="headerReferenceSize" width="0.0" height="0.0"/>
+                                    <size key="footerReferenceSize" width="0.0" height="0.0"/>
+                                    <inset key="sectionInset" minX="0.0" minY="0.0" maxX="0.0" maxY="0.0"/>
+                                </collectionViewFlowLayout>
+                                <cells>
+                                    <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="CatCollectionViewCell" id="Ndw-5U-3I9" customClass="CatCollectionViewCell" customModule="GiniChallenge" customModuleProvider="target">
+                                        <rect key="frame" x="0.0" y="128.5" width="374" height="346"/>
+                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                        <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO">
+                                            <rect key="frame" x="0.0" y="0.0" width="374" height="346"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                            <subviews>
+                                                <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="GKs-Q0-6jq">
+                                                    <rect key="frame" x="0.0" y="0.0" width="374" height="346"/>
+                                                    <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                                                </imageView>
+                                                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="heart_on" translatesAutoresizingMaskIntoConstraints="NO" id="EGJ-Uw-8gu">
+                                                    <rect key="frame" x="314" y="8" width="52" height="60"/>
+                                                    <constraints>
+                                                        <constraint firstAttribute="height" constant="60" id="WlG-Dd-XeR"/>
+                                                        <constraint firstAttribute="width" constant="52" id="ctT-TZ-Gf6"/>
+                                                    </constraints>
+                                                </imageView>
+                                                <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" scrollEnabled="NO" showsHorizontalScrollIndicator="NO" showsVerticalScrollIndicator="NO" editable="NO" text="http://www.google.com.br" textAlignment="center" translatesAutoresizingMaskIntoConstraints="NO" id="M2W-Af-ChA">
+                                                    <rect key="frame" x="20" y="311" width="334" height="29"/>
+                                                    <constraints>
+                                                        <constraint firstAttribute="height" constant="29" id="Ai9-Wg-zZl"/>
+                                                    </constraints>
+                                                    <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                                    <textInputTraits key="textInputTraits" autocapitalizationType="sentences" textContentType="url"/>
+                                                    <dataDetectorType key="dataDetectorTypes" link="YES"/>
+                                                </textView>
+                                            </subviews>
+                                        </view>
+                                        <color key="backgroundColor" red="0.099044777449999996" green="0.027827212590000001" blue="0.04365281016" alpha="0.61756207190000001" colorSpace="custom" customColorSpace="sRGB"/>
+                                        <constraints>
+                                            <constraint firstItem="EGJ-Uw-8gu" firstAttribute="trailing" secondItem="Ndw-5U-3I9" secondAttribute="trailingMargin" id="KeB-Go-YNs"/>
+                                            <constraint firstItem="EGJ-Uw-8gu" firstAttribute="top" secondItem="Ndw-5U-3I9" secondAttribute="topMargin" id="Nfn-vI-T6s"/>
+                                            <constraint firstAttribute="bottom" secondItem="M2W-Af-ChA" secondAttribute="bottom" constant="6" id="Wgg-R2-ohO"/>
+                                            <constraint firstAttribute="trailing" secondItem="M2W-Af-ChA" secondAttribute="trailing" constant="20" id="t27-SI-VGS"/>
+                                            <constraint firstItem="M2W-Af-ChA" firstAttribute="leading" secondItem="Ndw-5U-3I9" secondAttribute="leading" constant="20" id="vt0-xo-AKe"/>
+                                        </constraints>
+                                        <connections>
+                                            <outlet property="favoriteImage" destination="EGJ-Uw-8gu" id="HAA-dv-MYK"/>
+                                            <outlet property="imageView" destination="GKs-Q0-6jq" id="QfS-zD-6k2"/>
+                                            <outlet property="urlView" destination="M2W-Af-ChA" id="bMa-EG-ZfN"/>
+                                        </connections>
+                                    </collectionViewCell>
+                                </cells>
+                                <connections>
+                                    <outlet property="dataSource" destination="MOa-rc-OZp" id="bAs-qm-a49"/>
+                                    <outlet property="delegate" destination="MOa-rc-OZp" id="TSM-6a-3Su"/>
+                                </connections>
+                            </collectionView>
+                        </subviews>
+                        <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <constraints>
+                            <constraint firstItem="HLh-ln-meR" firstAttribute="bottom" secondItem="o6b-vk-MZs" secondAttribute="bottom" id="6sn-XZ-o1M"/>
+                            <constraint firstItem="HLh-ln-meR" firstAttribute="leading" secondItem="o6b-vk-MZs" secondAttribute="leading" id="dEs-Xb-x7Q"/>
+                            <constraint firstItem="HLh-ln-meR" firstAttribute="top" secondItem="o6b-vk-MZs" secondAttribute="top" id="nCV-aw-sCG"/>
+                            <constraint firstItem="HLh-ln-meR" firstAttribute="trailing" secondItem="o6b-vk-MZs" secondAttribute="trailing" id="uTl-pd-RoX"/>
+                        </constraints>
+                        <viewLayoutGuide key="safeArea" id="o6b-vk-MZs"/>
+                    </view>
+                    <navigationItem key="navigationItem" title="Favorites" id="xzY-NI-kwd"/>
+                    <connections>
+                        <outlet property="collectionView" destination="HLh-ln-meR" id="db1-Mh-BkC"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="4ta-DF-7S3" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1160.8" y="178.56071964017991"/>
         </scene>
     </scenes>
     <resources>

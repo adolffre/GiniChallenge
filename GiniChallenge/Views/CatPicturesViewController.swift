@@ -12,15 +12,11 @@ class CatPicturesViewController: UIViewController {
   fileprivate var presenter: CatPicturesPresenter?
   fileprivate var catsList: [Cat] = []
   @IBOutlet weak var collectionView: UICollectionView!
-  
-  var animator: UIDynamicAnimator?
 
   override func viewDidLoad() {
     super.viewDidLoad()
-    
     presenter = instanciatePresenter()
     presenter?.notifyViewDidLoad()
-    
   }
   
   override func viewWillAppear(_ animated: Bool) {

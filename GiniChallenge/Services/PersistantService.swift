@@ -12,7 +12,7 @@ import CoreData
 protocol CatPersistant {
   func save(cat: Cat)
   func delete(cat: Cat)
-  func loadFavoriteCats() -> [CatModel]
+  func loadFavoriteCats() -> [Cat]
 }
 
 class PersistantService {
@@ -25,6 +25,7 @@ class PersistantService {
 }
 
 extension PersistantService: CatPersistant {
+  
   func save(cat: Cat) {
     if createModelObjectFrom(cat: cat) != nil {
       do {
@@ -36,23 +37,46 @@ extension PersistantService: CatPersistant {
   }
   
   func delete(cat: Cat) {
-    if let catToDelete = createModelObjectFrom(cat: cat) {
-      context.delete(catToDelete)
+    if let catId = cat.id  {
+      let request = NSFetchRequest<NSFetchRequestResult>(entityName: "CatModel")
+      request.returnsObjectsAsFaults = false
+      request.predicate = NSPredicate(format: "catId == %@", catId)
+      
+      do {
+        let result = try context.fetch(request) as! [CatModel]
+        context.delete(result.first!)
+      } catch {
+        print("Failed")
+      }
     }
   }
   
-  func loadFavoriteCats() -> [CatModel] {
+  func loadFavoriteCats() -> [Cat] {
+    
     let request = NSFetchRequest<NSFetchRequestResult>(entityName: "CatModel")
     request.returnsObjectsAsFaults = false
     do {
       let result = try context.fetch(request) as! [CatModel]
-      return result
+      let catsToReturn = convertCatModelListToCatList(catModelList: result)
+      return catsToReturn
     } catch {
       print("Failed")
     }
     return []
   }
   
+  fileprivate func convertCatModelListToCatList(catModelList: [CatModel]) -> [Cat] {
+    var catsToReturn = [Cat]()
+    for catModel in catModelList {
+      let cat = Cat()
+      cat.id = catModel.catId
+      cat.imgUrl = catModel.imgUrl
+      cat.isFavorite = true
+      catsToReturn.append(cat)
+    }
+    return catsToReturn
+  }
+
   fileprivate func createModelObjectFrom(cat: Cat) -> NSManagedObject? {
     let entity = NSEntityDescription.entity(forEntityName: "CatModel", in: context)
     let catModel = NSManagedObject(entity: entity!, insertInto: context)

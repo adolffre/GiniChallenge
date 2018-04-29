@@ -39,5 +39,20 @@ extension ImagesService: CatImagesProvider {
       }
     }
   }
+  func setFavorite(catId: String) {
+    let defaults = UserDefaults.standard
+    let userId = defaults.object(forKey: "userId") as! String
+    let catImagesUrl = baseUrl + "favourite?api_key=\(apiKey)&sub_id=\(userId)&image_id=\(catId)"
+    requestUrl(url: catImagesUrl) { (data) in
+    }
+  }
+  
+  func removeFavorite(catId: String) {
+    let defaults = UserDefaults.standard
+    let userId = defaults.object(forKey: "userId") as! String
+    let catImagesUrl = baseUrl + "favourite?api_key=\(apiKey)&sub_id=\(userId)&image_id=\(catId)&action=remove"
+    requestUrl(url: catImagesUrl) { (data) in
+    }
+  }
 }
 
